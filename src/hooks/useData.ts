@@ -11,6 +11,7 @@ const useData = <T>(endpoint: string) => {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -19,6 +20,7 @@ const useData = <T>(endpoint: string) => {
       .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
       .then((res) => {
         setData(res.data.results);
+        setCount(res.data.count);
         setLoading(false);
       })
       .catch((err) => {
@@ -29,7 +31,7 @@ const useData = <T>(endpoint: string) => {
 
     return () => controller.abort();
   }, []);
-  return { data, error, isLoading };
+  return { data, count, error, isLoading };
 };
 
 export default useData;

@@ -6,9 +6,9 @@ function App() {
     <Grid
       templateAreas={{
         base: `"nav" "main"`,
-        lg: `"nav nav""aside main`,
-        xl: `"nav nav""aside main`,
-        "2xl": `"nav nav""aside main`,
+        lg: `"nav nav""aside main"`,
+        xl: `"nav nav""aside main"`,
+        "2xl": `"nav nav""aside main"`,
       }}
     >
       <GridItem area={"nav"}>

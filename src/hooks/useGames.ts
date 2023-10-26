@@ -7,13 +7,15 @@ export interface Platform {
   name: string;
   slug: string;
 }
-
+// Properties from API
 export interface Game {
   id: number;
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  // Rating from 1 to 5
+  rating_top: number;
 }
 
 const useGames = (gameQuery: GameQuery) =>
